@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{ room["title"] if room is not none else "Not Found" }}{% endblock %}
+{% block stylesheet %}{{ url_for('static', filename='video.css') }}{% endblock %}
+{% block content %}
+{% if room is none %}
+<h1 class="not-found">This room doesn't exist!</h1>
+{% else %}
+		<video id="video" controls>
+			<source src="{{ url_for('static', filename='videos/' + room['userId']|string + '/' + room['filename'] + '.mp4') }}">
+		</video>
+		<button type="button" id="chat-button" onclick="openChat()">CHAT</button>
+		<div id="chat">
+			<div id="chat-text">
+			</div>
+			<input id="chat-input" type="text" placeholder="Say hello!" onkeyup="sendMessage(event)">
+		</div>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+		<script src="{{ url_for('static', filename='video.js') }}"></script>
+		<script src="{{ url_for('static', filename='chat.js') }}"></script>
+		{% endif %}
+{% endblock %}

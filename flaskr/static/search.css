@@ -1,0 +1,86 @@
+h1 {
+	text-align: center;
+	margin-top: 100px;
+	color: #a8a8b4;
+}
+
+.content{
+	display: flex;
+	margin-top: 100px;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.content > a {
+	color: #a8a8b4;
+}
+
+.movie {
+	position: relative;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, .75);
+	width: 350px;
+	height: 250px;
+}
+
+.movie:hover {
+	width: 360px;
+	height: 260px;
+}
+
+.movie > img {
+	width: inherit;
+	height: inherit;
+}
+
+.movie > figcaption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 10px;
+	background: rgba(0, 0, 0, .8);
+}
+
+table {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	background-color: #1a1a2c;
+	border: 2px solid black;
+	border-spacing: 20px;
+	width: 90%;
+}
+
+table > td, tr {
+	border: 2px solid black;
+	text-align: left;
+}
+
+table > caption {
+	margin-bottom: 10px;
+	font-size: 20px;
+}
+
+button {
+	appearance: none;
+	-webkit-appearance: none;
+	padding: 10px;
+	background-color: #202330;
+	border: none;
+	border-radius: 10px;
+	width: 100%;
+	margin: 0 auto;
+	color: #a8a8b4;
+	border: 1px solid black;
+}
+
+button:hover {
+	border-color: #202330;
+}
+
+button:active {
+	background-color: #272a3c;
+}

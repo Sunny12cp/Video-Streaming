@@ -1,0 +1,49 @@
+h1 {
+	margin-top: 100px;
+	color: #a8a8b4;
+	padding: 10px;
+	text-align: center;
+}
+
+hr {
+	color: #a8a8b4;
+	width: 60%;
+}
+
+.home-content {
+	display: flex;
+	margin-top: 20px;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.home-content > a {
+	color: #a8a8b4;
+}
+
+.movie {
+	position: relative;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, .75);
+	width: 350px;
+	height: 250px;
+}
+
+.movie:hover {
+	width: 360px;
+	height: 260px;
+}
+
+.movie > img {
+	width: inherit;
+	height: inherit;
+}
+
+.movie > figcaption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 10px;
+	background: rgba(0, 0, 0, .8);
+}

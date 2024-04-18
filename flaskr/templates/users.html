@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Admin - Users{% endblock %}
+{% block stylesheet %}{{ url_for('static', filename='admin.css') }}{% endblock %}
+{% block content %}
+{% if users is not none and users|length > 1 %}
+<form method="POST">
+	<table>
+		<caption>Users</caption>
+		<tr>
+			<th>Username</th>
+			<th>Email</th>
+			<th>Delete</th>
+		</tr>
+		{% for user in users %}
+		{% if user["email"] != "admin@admin" %}
+		<tr>
+			<td>{{ user["username"] }}</td>
+			<td>{{ user["email"] }}</td>
+			<td><button type="submit" name="userDelete" value="{{ user['id'] }}">DELETE</button></td>
+		</tr>
+		{% endif %}
+		{% endfor %}
+	</table>
+</form>
+{% else %}
+<h1>There are currently no users.</h1>
+{% endif %}
+{% endblock %}

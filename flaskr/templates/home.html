@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Homepage{% endblock %}
+{% block stylesheet %}{{ url_for('static', filename='home.css') }}{% endblock %}
+{% block content %}
+<h1>Recommended rooms</h1>
+<hr>
+<div class="home-content">
+	{% if rooms != [] %}
+		{% for room in rooms %}
+		<a href="{{ url_for('video.video', invite=room['invite']) }}">
+			<figure class="movie">
+				<img src="{{ url_for('static', filename='videos/' + room['userId']|string + '/' + room['filename'] + '.png') }}">
+				<figcaption>{{ room['title'] }}</figcaption>
+			</figure>
+		</a>
+		{% endfor %}
+	{% else %}
+		<h2>There are currently no rooms available! Try again later.</h2>
+	{% endif %}
+</div>
+{% endblock %}

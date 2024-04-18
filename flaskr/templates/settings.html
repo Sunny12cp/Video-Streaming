@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{ session["username"] }} - Settings{% endblock %}
+{% block stylesheet %}{{ url_for('static', filename='settings.css') }}{% endblock %}
+{% block content %}
+<div class="form">
+	{% for message in get_flashed_messages() %}
+		<p class="error">{{ message }}</p>
+	{% endfor %}
+	<form method="POST">
+		<label for="username">Current Username</label>
+		<input type="text" name="username" value="{{ user['username'] }}">
+		<label for="email">Current Email</label>
+		<input type="email" name="email" value="{{ user['email'] }}">
+		<label for="oldpass">Old Password</label>
+		<input type="password" name="oldpass">
+		<label for="newpass">New Password</label>
+		<input type="password" name="newpass">                                      
+		<button type="submit">Save Changes</button>
+	</form>
+</div>
+{% endblock %}

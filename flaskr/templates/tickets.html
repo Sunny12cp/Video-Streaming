@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Admin - Tickets{% endblock %}
+{% block stylesheet %}{{ url_for('static', filename='admin.css') }}{% endblock %}
+{% block content %}
+{% if tickets is not none and tickets|length > 0 %}
+<form method="POST">
+	<table>
+		<caption>Tickets</caption>
+		<tr>
+			<th>Username</th>
+			<th>Email</th>
+			<th>Problem</th>
+			<th>Delete</th>
+		</tr>
+		{% for ticket in tickets %}
+		<tr>
+			<td>{{ ticket["username"] }}</td>
+			<td>{{ ticket["email"] }}</td>
+			<td>{{ ticket["problem"] }}</td>
+			<td><button type="submit" name="ticketDelete" value="{{ ticket['id'] }}">DELETE</button></td>
+		</tr>
+		{% endfor %}
+	</table>
+</form>
+{% else %}
+<h1>There are currently no tickets.</h1>
+{% endif %}
+{% endblock %}

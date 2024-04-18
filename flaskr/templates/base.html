@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>{% block title %}{% endblock %}</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
+		<link rel="stylesheet" href="{% block stylesheet %}{% endblock %}">
+		<meta charset="utf-8">
+	</head>
+	<body>
+    <div class="navbar">
+      <ul>
+				<li><span id="title">ChefKast</span></li>
+				<li><a href="{{ url_for('settings') }}">{{ session['username'] }}</a></li>
+				{% if session['admin'] != True %}
+				<li><a href="{{ url_for('index') }}">Home</a></li>
+				<li><a href="{{ url_for('create') }}">Create Room</a></li>
+				<li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+				{% else %}
+				<li><a href="{{ url_for('admin.tickets') }}">Tickets</a></li>
+				<li><a href="{{ url_for('admin.users') }}">Users</a></li>
+				{% endif %}
+				<li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+      </ul>
+			{% if session['admin'] != True %}
+			<form action="{{ url_for('search.searchMovie') }}" method="POST">
+				<input type="search" class="searchbar" name="movie" id="search" placeholder="Search for a movie...">
+			</form>
+			{% else %}
+			<form action="{{ url_for('search.searchUser') }}" method="POST">
+				<input type="search" class="searchbar" name="user" id="search" placeholder="Search for a user...">
+			</form>
+			{% endif %}
+    </div>
+		{% block content %}{% endblock %}
+	</body>
+</html>

@@ -1,0 +1,75 @@
+h1 {
+	text-align: center;
+	margin-top: 0;
+}
+
+.create-room {
+	position: absolute;
+	width: 400px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border: 1px solid black;
+	border-radius: 12px;
+	padding: 30px;
+	background-color: #1a1a2c;
+}
+
+input[type=text] {
+	padding: 5px;
+	border: 0;
+	border-radius: 10px;
+	box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+	width: 100%;
+	background-color: #01000f;
+	color: #a8a8b4;
+}
+
+#fake-upload {
+	border: 1px solid #01000f;
+	border-radius: 10px;
+	box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+	color: #a8a8b4;
+	background-color: #272a3c;
+	width: 100%;
+	margin: 20px 0 10px 0;
+	padding: 8px;
+}
+
+#fake-upload:hover {
+	border: 1px solid #272a3c;
+}
+
+#fake-upload:active {
+	background-color: #202330;
+}
+
+#upload {
+	display: none;
+}
+
+#filename {
+	display: none;
+	text-align: center;
+}
+
+.submit {
+	appearance: none;
+	-webkit-appearance: none;
+	padding: 10px;
+	background-color: #202330;
+	border: none;
+	border-radius: 10px;
+	width: 100%;
+	margin-top: 10px;
+	color: #a8a8b4;
+	border: 1px solid black;
+}
+
+.submit:hover {
+	border-color: #202330;
+}
+
+.submit:active {
+	background-color: #272a3c;
+}
